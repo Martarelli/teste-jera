@@ -12,7 +12,7 @@ function App() {
     if(totalTimeInSeconds === 0){
       if(window.Notification && Notification.permission !== "denied"){
         Notification.requestPermission(function(status){
-          let notification = new Notification("ALERTA",{
+          new Notification("ALERTA",{
             body:"O tempo acabou!"
           });
         })
