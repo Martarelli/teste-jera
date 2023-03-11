@@ -14,8 +14,9 @@ function App() {
         Notification.requestPermission(function(status){
           new Notification("ALERTA",{
             body:"O tempo acabou!"
-          });
-        })
+          })
+        });
+        setTotalTimeInSeconds( 5 * 60 );
       }
     } else {
       setTimeout(() => {
