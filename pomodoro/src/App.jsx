@@ -3,12 +3,18 @@ import './App.css';
 import sound from './timeover.mp3';
 
 function App() {
-  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 25 * 60 );
+
+  let timePomodoro = 25;
+
+  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( timePomodoro * 60 );
   const [relaxTime, setRelaxTime] = useState(true);
 
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
   
+  function setTimePomodoro(){
+    
+  }
   function playSound(){
     const audio = new Audio(sound);
     audio.currentTime = 0;
@@ -19,16 +25,22 @@ function App() {
     if(totalTimeInSeconds === 0){
       if(window.Notification && Notification.permission !== "denied"){
         Notification.requestPermission(function(status){
-          new Notification("ALERTA",{
-            body:"O tempo acabou!"
-          })
+          if(relaxTime){
+            new Notification("ALERTA",{
+              body:"Começou o tempo de descanso!"
+            })
+          } else {
+            new Notification("ALERTA",{
+              body:"Acabou o tempo de descanso!"
+            })
+          }
         });
         playSound();
         if(relaxTime){
           setTotalTimeInSeconds( 5 * 60 );
           setRelaxTime(false);
         } else {
-          setTotalTimeInSeconds( 25 * 60 );
+          setTotalTimeInSeconds( timePomodoro * 60 );
           setRelaxTime(true)
         }
       }
@@ -45,6 +57,15 @@ function App() {
         <span>{minutes.toString().padStart(2 , "0")}</span>
         <span>:</span>
         <span>{seconds.toString().padStart(2 , "0")}</span>
+      </div>
+      <div className='timer-props'>
+        <form action="{}">
+          <div className='time-div-inputs'>
+            <label className='time-label'>Tempo Pomodoro: </label>
+            <input className='time-input' type="number" step="1" />
+          </div>
+          <button className='time-button' type="submit">Alterar</button>
+        </form>
       </div>
     </div>
   );
