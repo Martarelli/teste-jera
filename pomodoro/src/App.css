@@ -1,13 +1,17 @@
 .App {
   display: flex;
   flex-direction: column;
-  font-size: 5rem;
+  font-size: 2rem;
   text-align: center;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
+.timer{
+  font-size: 5rem;
+  font-weight: 900;
+}
 .timer-props{
   font-size: 1.2rem;
 }
