@@ -46,7 +46,7 @@ function App() {
         setTotalTimeInSeconds(totalTimeInSeconds - 1);
       }, 1000);
     }
-  }, [totalTimeInSeconds, relaxTime, timePomodoro])
+  }, [totalTimeInSeconds, relaxTime, timePomodoro, cicles])
 
   return (
     <div className="App">
