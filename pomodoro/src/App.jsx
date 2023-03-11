@@ -10,13 +10,6 @@ function App() {
 
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
-  
-  const setTime = () => {
-    const value = document.getElementById('time-input').value;
-    setTimePomodoro(value);
-    setTotalTimeInSeconds( value * 60 );
-    setRelaxTime(false);
-  }
 
   function playSound(){
     const audio = new Audio(sound);
@@ -43,7 +36,7 @@ function App() {
           setTotalTimeInSeconds( 5 * 60 );
           setRelaxTime(false);
         } else {
-          setCicles(setCicles + 1);
+          setCicles(cicles + 1);
           setTotalTimeInSeconds( timePomodoro * 60 );
           setRelaxTime(true)
         }
@@ -67,10 +60,11 @@ function App() {
       </div>
       <div className='timer-props'>
           <div className='time-div-inputs'>
-            <label>Tempo Pomodoro: </label>
-            <input id='time-input' type="number" step="1"/>
+            <label>Tempo Pomodoro:
+              <input id='time-input' type="number" step="1"/>
+            </label>
           </div>
-          <button className='time-button' type="button" onClick={setTime}>Alterar</button>
+          <button className='time-button' type="button">Alterar</button>
       </div>
     </div>
   );
