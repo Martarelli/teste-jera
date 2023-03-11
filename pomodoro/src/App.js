@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  //Definição do tempo inicial
+  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 25 * 60 );
   return (
     <div className="App">
 
