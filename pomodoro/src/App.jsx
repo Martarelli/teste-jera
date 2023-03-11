@@ -4,7 +4,7 @@ import sound from './timeover.mp3';
 
 function App() {
   const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 25 * 60 );
-  const [relaxTime, setRelaxTime] = useState(false);
+  const [relaxTime, setRelaxTime] = useState(true);
 
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
@@ -24,14 +24,20 @@ function App() {
           })
         });
         playSound();
-        setTotalTimeInSeconds( 5 * 60 );
+        if(relaxTime){
+          setTotalTimeInSeconds( 5 * 60 );
+          setRelaxTime(false);
+        } else {
+          setTotalTimeInSeconds( 25 * 60 );
+          setRelaxTime(true)
+        }
       }
     } else {
       setTimeout(() => {
         setTotalTimeInSeconds(totalTimeInSeconds - 1);
       }, 1000);
     }
-  }, [totalTimeInSeconds])
+  }, [totalTimeInSeconds, relaxTime])
 
   return (
     <div className="App">
