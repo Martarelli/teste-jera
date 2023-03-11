@@ -1,7 +1,21 @@
 .App {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   font-size: 5rem;
   text-align: center;
   min-height: 100vh;
   align-items: center;
+  justify-content: center;
+}
+
+.timer-props{
+  font-size: 1.2rem;
+}
+.time-div-inputs{
+  width: 100%;
+  padding: 2rem 0 1rem;
+}
+.time-button{
+  width: 100%;
+  height: 3rem;
 }
