@@ -58,14 +58,6 @@ function App() {
         <span>:</span>
         <span>{seconds.toString().padStart(2 , "0")}</span>
       </div>
-      <div className='timer-props'>
-          <div className='time-div-inputs'>
-            <label>Tempo Pomodoro:
-              <input id='time-input' type="number" step="1"/>
-            </label>
-          </div>
-          <button className='time-button' type="button">Alterar</button>
-      </div>
     </div>
   );
 }
