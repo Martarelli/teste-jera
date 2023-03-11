@@ -4,7 +4,7 @@ import sound from './timeover.mp3';
 
 function App() {
   const [timePomodoro, setTimePomodoro] = useState( 2 );
-  const [cicles, setCicles] = useState( 0 );
+  const [cicles, setCicles] = useState( 1 );
   const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( timePomodoro * 60 );
   const [relaxTime, setRelaxTime] = useState(true);
 
@@ -33,7 +33,11 @@ function App() {
         });
         playSound();
         if(relaxTime){
-          setTotalTimeInSeconds( 5 * 60 );
+          if(cicles % 4 === 0){
+            setTotalTimeInSeconds( 10 * 60 );
+          } else {
+            setTotalTimeInSeconds( 5 * 60 );
+          }
           setRelaxTime(false);
         } else {
           setCicles(cicles + 1);
