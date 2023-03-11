@@ -9,7 +9,11 @@ function App() {
   const seconds = totalTimeInSeconds % 60;
   return (
     <div className="App">
-
+      <div className='timer'>
+        <span>{minutes.toString().padStart(2 , "0")}</span>
+        <span>:</span>
+        <span>{seconds.toString().padStart(2 , "0")}</span>
+      </div>
     </div>
   );
 }
