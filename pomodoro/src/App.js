@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   //Definição do tempo inicial
-  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 5 );
+  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 25 * 60 );
 
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
