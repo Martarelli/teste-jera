@@ -3,15 +3,20 @@ import './App.css';
 
 function App() {
   //Definição do tempo inicial
-  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 25 * 60 );
+  const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( 5 );
 
   const minutes = Math.floor(totalTimeInSeconds / 60);
   const seconds = totalTimeInSeconds % 60;
 
   useEffect(() => {
     if(totalTimeInSeconds === 0){
-      alert("O tempo acabou!");
-
+      if(window.Notification && Notification.permission !== "denied"){
+        Notification.requestPermission(function(status){
+          let notification = new Notification("ALERTA",{
+            body:"O tempo acabou!"
+          });
+        })
+      }
     } else {
       setTimeout(() => {
         setTotalTimeInSeconds(totalTimeInSeconds - 1);
