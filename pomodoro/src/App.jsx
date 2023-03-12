@@ -62,18 +62,20 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <span>Ciclos Pomodoro: {cicles}</span>
+      <div className='timer-container'>
+        <div>
+          <span>Ciclos Pomodoro: {cicles}</span>
+        </div>
+        <div className='timer'>
+          <span>{minutes.toString().padStart(2 , "0")}</span>
+          <span>:</span>
+          <span>{seconds.toString().padStart(2 , "0")}</span>
+        </div>
+        <form onSubmit={handlerSubmit}>
+          <input type="number" name='time' placeholder='Escolhar um tempo Pomodoro para o próximo ciclo...' />
+          <button type="submit">Alterar</button>
+        </form>
       </div>
-      <div className='timer'>
-        <span>{minutes.toString().padStart(2 , "0")}</span>
-        <span>:</span>
-        <span>{seconds.toString().padStart(2 , "0")}</span>
-      </div>
-      <form onSubmit={handlerSubmit}>
-        <input type="number" name='time' placeholder='Escolhar um tempo Pomodoro para o próximo ciclo...' />
-        <button type="submit">Alterar</button>
-      </form>
     </div>
   );
 }
