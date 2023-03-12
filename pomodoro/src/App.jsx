@@ -17,6 +17,14 @@ function App() {
     audio.play(); 
   };
 
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    setTimePomodoro(parseInt(data.time))
+    alert("O tempo pomodoro será alterado no próximo ciclo...")
+
+  }
   useEffect(() => {
     if(totalTimeInSeconds === 0){
       if(window.Notification && Notification.permission !== "denied"){
@@ -48,7 +56,7 @@ function App() {
     } else {
       setTimeout(() => {
         setTotalTimeInSeconds(totalTimeInSeconds - 1);
-      }, 1000);
+      }, 100);
     }
   }, [totalTimeInSeconds, relaxTime, timePomodoro, cicles])
 
@@ -62,6 +70,10 @@ function App() {
         <span>:</span>
         <span>{seconds.toString().padStart(2 , "0")}</span>
       </div>
+      <form onSubmit={handlerSubmit}>
+        <input type="number" name='time' placeholder='Escolhar um tempo Pomodoro para o próximo ciclo...' />
+        <button type="submit">Alterar</button>
+      </form>
     </div>
   );
 }

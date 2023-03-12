@@ -12,14 +12,13 @@
   font-size: 5rem;
   font-weight: 900;
 }
-.timer-props{
-  font-size: 1.2rem;
+
+form > * {
+  width: 25rem;  
+  height: 1.5rem;
 }
-.time-div-inputs{
-  width: 100%;
-  padding: 2rem 0 1rem;
-}
-.time-button{
-  width: 100%;
+
+form > button{
+  width: 200px;
   height: 3rem;
 }
