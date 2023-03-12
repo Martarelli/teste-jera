@@ -3,7 +3,7 @@ import './App.css';
 import sound from './timeover.mp3';
 
 function App() {
-  const [timePomodoro, setTimePomodoro] = useState( 2 );
+  const [timePomodoro, setTimePomodoro] = useState( 25 );
   const [cicles, setCicles] = useState( 1 );
   const [totalTimeInSeconds, setTotalTimeInSeconds] = useState( timePomodoro * 60 );
   const [relaxTime, setRelaxTime] = useState(true);
@@ -56,7 +56,7 @@ function App() {
     } else {
       setTimeout(() => {
         setTotalTimeInSeconds(totalTimeInSeconds - 1);
-      }, 100);
+      }, 1000);
     }
   }, [totalTimeInSeconds, relaxTime, timePomodoro, cicles])
 
